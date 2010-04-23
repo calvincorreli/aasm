@@ -40,9 +40,7 @@ module AASM
 
         if base.respond_to?(:scope)
           base.extend(AASM::Persistence::ActiveRecordPersistence::ScopeMethods)
-        end
-
-        if base.respond_to?(:named_scope)
+        elsif base.respond_to?(:named_scope)
           base.extend(AASM::Persistence::ActiveRecordPersistence::NamedScopeMethods)
         end
         
