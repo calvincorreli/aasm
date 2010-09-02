@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '..', 'spec_helper')
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'spec_helper'))
 
 class Foo
   include AASM
@@ -236,7 +236,7 @@ describe AASM, '- event firing without persistence' do
     def foo.aasm_write_state
     end
 
-    foo.should_receive(:aasm_write_state_without_persistence)
+    foo.should_receive(:aasm_write_state_without_persistence).twice
 
     foo.close
   end
